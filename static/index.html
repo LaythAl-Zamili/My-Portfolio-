@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date and Time</title>
+</head>
+<body>
+  <h2 id="time">...</h2>
+  <div>
+    <a href="/">Date and time</a>
+    <a href="/date">Only date</a>
+    <a href="/time">Only time</a>
+  </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        window.setInterval(() => {
+            const now = new Date();
+            document.getElementById("time").innerHTML = now.toLocaleString();
+        }, 1000);
+    });
+</script>
+</html>

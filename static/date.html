@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Date</title>
+</head>
+<body>
+  <h2 id="time">...</h2>
+  <div>
+    <a href="/">Date and time</a>
+    <a href="/date">Only date</a>
+    <a href="/time">Only time</a>
+  </div>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const now = new Date();
+        document.getElementById("time").innerHTML = now.getDate() + "." + (now.getMonth() + 1) + "." + now.getUTCFullYear();
+    });
+</script>
+</html>
