@@ -1,0 +1,51 @@
+From a98a4d869aedfcbd7b3068c12de5b48adeb3ef11 Mon Sep 17 00:00:00 2001
+From: LaythAl-Zamili <laithalzamely@gmail.com>
+Date: Mon, 2 May 2022 13:20:51 +0200
+Subject: [PATCH] Reading config files in a better way
+
+---
+ app.py | 19 +++++++++++++++----
+ 1 file changed, 15 insertions(+), 4 deletions(-)
+
+diff --git a/app.py b/app.py
+index 9c856e6..6ed35d6 100644
+--- a/app.py
++++ b/app.py
+@@ -1,7 +1,17 @@
+ import sys
+ import http.server
+ import socketserver
+-import subprocess
++try:
++    from configparser import ConfigParser
++except ImportError:
++    from ConfigParser import ConfigParser  # ver. < 3.0
++
++# I added this new function for reading config files in a better way
++def get_config_dict():
++    config = ConfigParser()
++    config.read('config.ini')
++    details_dict = dict(config.items('PROPERTIES'))
++    return details_dict
+ 
+ class httpRequestHandler(http.server.SimpleHTTPRequestHandler):
+     def do_GET(self):
+@@ -13,11 +23,12 @@ class httpRequestHandler(http.server.SimpleHTTPRequestHandler):
+             return http.server.SimpleHTTPRequestHandler.do_GET(self)
+ 
+ 
+-conf = subprocess.run(["grep", "port=", "/var/tmp/mytime/mytime.conf"], stdout=subprocess.PIPE)
+-if b"=" not in conf.stdout:
++# conf = subprocess.run(["grep", "port=", "/var/tmp/mytime/mytime.conf"], stdout=subprocess.PIPE)
++conf = get_config_dict()
++if not conf['port']:
+     print("Could not read configuration file `/var/tmp/mytime/mytime.conf`")
+     sys.exit(1)
+-port = conf.stdout.split(b"=")[1]
++port = conf['port']
+ 
+ socketserver.TCPServer.allow_reuse_address = True
+ server = socketserver.TCPServer(("", int(port)), httpRequestHandler)
+-- 
+2.35.1.windows.2
+

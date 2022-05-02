@@ -1,0 +1,22 @@
+From 7bf02e15f24417cb9746a0521671666de8534863 Mon Sep 17 00:00:00 2001
+From: LaythAl-Zamili <laithalzamely@gmail.com>
+Date: Mon, 2 May 2022 13:22:58 +0200
+Subject: [PATCH] added new file config
+
+---
+ config.ini | 2 ++
+ 1 file changed, 2 insertions(+)
+ create mode 100644 config.ini
+
+diff --git a/config.ini b/config.ini
+new file mode 100644
+index 0000000..f7d1424
+--- /dev/null
++++ b/config.ini
+@@ -0,0 +1,2 @@
++[PROPERTIES]
++port = 3000
+\ No newline at end of file
+-- 
+2.35.1.windows.2
+
