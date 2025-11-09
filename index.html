@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Layth Al-Zamili — Portfolio</title>
+
+    <!-- Meta / social -->
+    <meta
+      name="description"
+      content="Final-year software student • ServiceNow developer • Data-driven malware URL detection thesis • Crypto trader. Projects, case studies, and contact."
+    />
+    <meta property="og:title" content="Layth Al-Zamili — Portfolio" />
+    <meta
+      property="og:description"
+      content="Final-year software student • ServiceNow developer • Data-driven malware URL detection thesis • Crypto trader."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="color-scheme" content="light dark" />
+
+    <!-- best one for different sizes -->
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="wrap nav">
+        <a class="brand" href="#top" aria-label="Home">
+          <!-- PNG logo for navbar -->
+          <img src="L12Navbar.png" alt="L12 logo" />
+          <span>Layth Al-Zamili</span>
+        </a>
+
+        <!-- Desktop / Mobile links -->
+        <nav class="links" id="navLinks" aria-label="Primary">
+          <a class="link" href="#work">Work</a>
+          <a class="link" href="#thesis">Thesis</a>
+          <a class="link" href="#servicenow">ServiceNow</a>
+          <a class="link" href="#contact">Contact</a>
+        </nav>
+
+        <div class="spacer"></div>
+        <button
+          id="menu"
+          class="btn menu-toggle"
+          aria-controls="navLinks"
+          aria-expanded="false"
+          aria-label="Open menu"
+        >
+          ☰
+        </button>
+        <button id="mode" class="btn" aria-label="Toggle theme">🌓</button>
+      </div>
+    </header>
+
+    <main class="wrap" id="top">
+      <section class="hero" aria-label="Intro">
+        <div>
+          <h1>
+            Software engineer & final-year student.<br />Data-driven security &
+            practical platforms.
+          </h1>
+          <p class="lead">
+            I solve real problems with clean code and simple UX. Right now I’m
+            finishing my thesis on malicious URL detection, building with
+            JavaScript/Node, and delivering on the ServiceNow platform. I also
+            trade crypto with disciplined risk.
+          </p>
+          <div class="badges">
+            <span class="chip">JavaScript • Node • React</span>
+            <span class="chip">ServiceNow (CSA/CDS)</span>
+            <span class="chip">Security • ML (URL features)</span>
+            <span class="chip">Crypto (spot/grid/risk)</span>
+          </div>
+
+          <!-- Tabs -->
+          <div class="tabs" role="tablist" aria-label="Focus">
+            <button
+              class="tab active"
+              data-tab="student"
+              role="tab"
+              aria-selected="true"
+            >
+              Student
+            </button>
+            <button
+              class="tab"
+              data-tab="engineer"
+              role="tab"
+              aria-selected="false"
+            >
+              Engineer
+            </button>
+            <button
+              class="tab"
+              data-tab="trader"
+              role="tab"
+              aria-selected="false"
+            >
+              Trader
+            </button>
+          </div>
+
+          <div class="panel" id="tab-student" role="region" aria-live="polite">
+            <div class="grid cols-2">
+              <div class="card">
+                <h3>Thesis: Malicious URL Detection</h3>
+                <p>
+                  Feature-based ML using URL-only signals (lengths, tokens,
+                  entropy). Comparing KNN, SVM, Random Forest, Naive Bayes.
+                  Emphasis on balanced metrics and practical deployment.
+                </p>
+              </div>
+              <div class="card">
+                <h3>Tooling & Datasets</h3>
+                <p>
+                  Python for feature extraction and training, but the
+                  <em>demo</em> runs in JS with a fast heuristic pre-filter +
+                  model scores. Edge-friendly build.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="tab-engineer" role="region" hidden>
+            <div class="grid cols-2">
+              <div class="card">
+                <h3>Full-stack JavaScript</h3>
+                <p>
+                  REST APIs with Express/Mongo, client apps with React. Clean
+                  state, predictable data, careful error paths.
+                </p>
+              </div>
+              <div class="card">
+                <h3>ServiceNow Delivery</h3>
+                <p>
+                  Flows, Catalogs, Script Includes, Glide records, and
+                  integration work. I focus on maintainability and readable
+                  business logic.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel" id="tab-trader" role="region" hidden>
+            <div class="grid cols-2">
+              <div class="card">
+                <h3>Trading Approach</h3>
+                <p>
+                  Structured entries, defined exits, small position sizes.
+                  Automation assists; decisions remain human.
+                </p>
+              </div>
+              <div class="card">
+                <h3>Risk Notes</h3>
+                <p>
+                  Capital preservation first. I avoid over-optimized bots and
+                  prefer transparent, auditable rules.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <img
+            src="L12.png"
+            alt="L12 logo large"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </section>
+
+      <section id="work" class="panel" aria-label="Selected Work">
+        <h2>Selected Work</h2>
+        <div class="grid cols-3" style="margin-top: 12px">
+          <div class="card">
+            <h3>URL Shield (demo)</h3>
+            <p>
+              A tiny in-browser malicious URL screener. Heuristic pre-filter +
+              model score (loaded as JSON). No server required.
+            </p>
+            <details style="margin-top: 10px">
+              <summary><span class="caret">▶</span> How it works</summary>
+              <p class="tagline">
+                Parse → extract tokens/ratios/entropy → quick ruleout → score
+                with a shipped probability table.
+              </p>
+            </details>
+          </div>
+          <div class="card">
+            <h3>ServiceNow Catalog Flow</h3>
+            <p>
+              Request → approve → fulfill with clear audit logs. Script Includes
+              broken into small, testable pieces.
+            </p>
+          </div>
+          <div class="card">
+            <h3>React + Node Starter</h3>
+            <p>
+              Opinionated but light: routing, auth shell, API patterns, error
+              boundaries, and a dark mode baseline.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="thesis" class="panel" aria-label="Thesis">
+        <h2>Thesis — Malicious URL Detection</h2>
+        <div class="project">
+          <div>
+            <strong>Problem</strong>
+            <div class="tagline">
+              Phishing still thrives. Goal: flag risky URLs using only the URL
+              string.
+            </div>
+          </div>
+          <div class="meta">Security • ML • URL features</div>
+        </div>
+        <div class="project">
+          <div>
+            <strong>Features</strong>
+            <div class="tagline">
+              Lengths, char classes, token counts, suspicious TLDs, entropy
+              spikes, brand collisions.
+            </div>
+          </div>
+          <div class="meta">Feature engineering</div>
+        </div>
+        <div class="project">
+          <div>
+            <strong>Models</strong>
+            <div class="tagline">
+              Baseline NB → SVM/LinearSVM → RandomForest. Metrics beyond
+              accuracy: ROC-AUC, F1, balanced accuracy.
+            </div>
+          </div>
+          <div class="meta">Comparative study</div>
+        </div>
+        <div class="project">
+          <div>
+            <strong>Demo</strong>
+            <div class="tagline">
+              Local demo in this page. Try a URL below. (This is a static,
+              simplified scorer wired for UX.)
+            </div>
+          </div>
+          <div><button class="link-btn" id="open-demo">Open demo</button></div>
+        </div>
+
+        <dialog id="demo">
+          <form method="dialog" style="margin: 0">
+            <div class="dialog-header">
+              <strong>URL quick check</strong>
+              <div class="spacer"></div>
+              <button class="btn">Close</button>
+            </div>
+            <div class="dialog-body">
+              <input
+                id="urlInput"
+                type="url"
+                placeholder="https://example.com/login"
+              />
+              <button type="button" id="scoreUrl" class="btn">Check</button>
+              <div id="urlResult" class="tagline"></div>
+            </div>
+          </form>
+        </dialog>
+      </section>
+
+      <section id="servicenow" class="panel" aria-label="ServiceNow">
+        <h2>ServiceNow Notes</h2>
+        <div class="grid cols-2" style="margin-top: 12px">
+          <div class="card">
+            <h3>Style</h3>
+            <p>
+              Readable Glide calls, Script Includes named by responsibility,
+              minimal business rules, meaningful catalog variables.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Integrations</h3>
+            <p>
+              Prefer REST with small payloads, retry logic, and clear mapping
+              tables. Log enough to debug, not to drown.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="panel" aria-label="Contact">
+        <h2>Contact</h2>
+        <div class="grid cols-2" style="margin-top: 12px">
+          <div class="card">
+            <h3>Let’s talk</h3>
+            <p>
+              Email: <a href="mailto:hello@layth.dev">hello@layth.dev</a
+              ><br />LinkedIn: <a href="#" id="linkedin">/in/layth-alzamili</a>
+            </p>
+          </div>
+          <div class="card">
+            <h3>Quick note</h3>
+            <p>
+              Available for junior/mid roles or internships in software
+              engineering and ServiceNow. Remote-friendly.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap" style="padding: 0">
+        © <span id="y"></span> © Layth Al-Zamili — All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script defer src="app.js"></script>
+  </body>
+</html>
